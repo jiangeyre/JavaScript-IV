@@ -24,13 +24,13 @@ class Instructor extends Person{
         return `${student.name} receives a perfect score on ${subject}.`;
     }
     addSubGrade(student){
-        let points = Math.round(Math.random() * 100);
-        if (student.grade >= 100){
-            student.grade -= points;
-            return `${student.name} has lost ${points} points. Current grade is ${student.grade}.`;
+        let pts = Math.round(Math.floor((Math.random() * (10 - 5 +1) + 5)));
+        if (student.grade > 70){
+            student.grade -= pts;
+            return `${student.name} has lost ${pts} points. Current grade is ${student.grade}.`;
         } else {
-            student.grade += points;
-            return `${student.name} has received ${points} points. Current grade is ${student.grade}.`;
+            student.grade += pts;
+            return `${student.name} has received ${pts} points. Current grade is ${student.grade}.`;
         }
     } 
 }
@@ -121,7 +121,7 @@ const draco = new Student({
     location: 'Malfoy Manor - East Wing',
     previousBackground: 'Potions and Quidditch',
     className: 'WEB25',
-    favSubjects: 'Nesting and Inheritance',
+    favSubjects: ['Nesting', 'Inheritance', 'Classes'],
     grade: 96
 })
 
@@ -131,8 +131,21 @@ const theo = new Student({
     location: 'Nott Manor',
     previousBackground: 'Defense against the Dark Arts',
     className: 'WEB25',
-    favSubjects: 'Prototypes and Classes',
-    grade: 92
+    favSubjects: ['CSS', 'HTML', 'Prototypes and Classes'],
+    grade: 60
 })
 
+console.log(snape.speak());
+console.log(theo.listsSubjects());
+console.log(draco.listsSubjects());
+console.log(bellatrix.catchPhrase);
+console.log(lucius.catchPhrase);
+console.log(snape.catchPhrase);
+console.log(crouch.catchPhrase);
+
+console.log(crouch.addSubGrade(draco));
 console.log(draco.graduate());
+
+console.log(lucius.addSubGrade(theo));
+console.log(bellatrix.addSubGrade(theo));
+console.log(theo.graduate());
