@@ -39,7 +39,7 @@ class Student extends Person{
         super(studentAttr);
         this.previousBackground = studentAttr.previousBackground,
         this.className = studentAttr.className,
-        this.favSubjects = studentAttr.favSubjects
+        this.favSubjects = studentAttr.favSubjects,
         this.grade = {from: 0, to: 100};
         this.grade = studentAttr.grade;
     }
@@ -57,7 +57,7 @@ class Student extends Person{
             return `${this.name} has completed graduation with a grade of ${this.grade}. Congratulations and we commend you for putting in so much time and effort!`;
         } else {
             let missingPoints = 70 - this.grade;
-            return `The Project Manager has reviewed all of ${this.name}'s assignments and awarded ${missingPoints} to bring the grade to a passing score of 70. Congratulations on just passing the course.`;
+            return `The Project Manager has reviewed all of ${this.name}'s assignments and awarded ${missingPoints} points to bring the grade to a passing score of 70. Congratulations on just barely passing the course.`;
         }
     }
 }
@@ -81,7 +81,7 @@ const snape = new Instructor({
     location: 'Hogwarts',
     specialty: 'Data Science',
     favLanguage: 'C++',
-    catchPhrase: 'Ah, yes. Harry Potter. Our new -celebrity.'
+    catchPhrase: 'Ah, yes. Harry Potter. Our new - celebrity.'
 })
 
 const crouch = new Instructor({
@@ -101,7 +101,7 @@ const lucius = new ProjectManager({
     favLanguage: 'Python',
     catchPhrase: 'You, filthy Mudblood.',
     gradClassName: 'WEB13',
-    favInstructor: 'Salazar Slytherin'
+    favInstructor: 'Salazar🐍Slytherin'
 })
 
 const bellatrix = new ProjectManager({
@@ -112,7 +112,7 @@ const bellatrix = new ProjectManager({
     favLanguage: 'Python',
     catchPhrase: 'Itty bitty orphan unloved Potter.',
     gradClassName: 'AND13',
-    favInstructor: 'Lord Voldemort'
+    favInstructor: 'Lord🐍Voldemort'
 })
 
 const draco = new Student({
@@ -136,15 +136,24 @@ const theo = new Student({
 })
 
 console.log(snape.speak());
+
 console.log(theo.listsSubjects());
 console.log(draco.listsSubjects());
-console.log(bellatrix.catchPhrase);
-console.log(lucius.catchPhrase);
-console.log(snape.catchPhrase);
-console.log(crouch.catchPhrase);
 
+console.log(bellatrix.name + ' says, "' + bellatrix.catchPhrase + '"');
+console.log(lucius.name + ' says, "' + lucius.catchPhrase + '"');
+console.log(snape.name + ' says, "' + snape.catchPhrase + '"');
+console.log(crouch.name + ' says, "' + crouch.catchPhrase + '"');
+
+console.log('Our benevolent creator is ' + lucius.favInstructor + ".");
+console.log('All bow down to our mighty leader, ' + bellatrix.favInstructor + ".");
+
+console.log(draco.grade);
 console.log(crouch.addSubGrade(draco));
+console.log(draco.grade);
 console.log(draco.graduate());
+
+console.log(theo.graduate());
 
 console.log(lucius.addSubGrade(theo));
 console.log(bellatrix.addSubGrade(theo));
