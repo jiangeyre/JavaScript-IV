@@ -44,7 +44,8 @@ class Student extends Person{
         this.grade = studentAttr.grade;
     }
     listsSubjects(){
-        this.favSubjects.map(list => console.log(list));
+        // this.favSubjects.map(list => console.log(list));
+        this.favSubjects.forEach (list => console.log(list));
     }
     PRAssignment(subject){
         return `${this.name} has submitted a Pull Request for ${subject}.`;
@@ -137,8 +138,8 @@ const theo = new Student({
 
 console.log(snape.speak());
 
-console.log(theo.listsSubjects());
-console.log(draco.listsSubjects());
+theo.listsSubjects();
+draco.listsSubjects();
 
 console.log(bellatrix.name + ' says, "' + bellatrix.catchPhrase + '"');
 console.log(lucius.name + ' says, "' + lucius.catchPhrase + '"');
